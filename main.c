@@ -23,12 +23,13 @@ int main() {
 
 	Node * p;
 	p = list;
-
-	printf("%d ", p->data);
-	p = p->next;
-	printf("%d ", p->data);
-	p = p->next;
-	printf("%d ", p->data);
+	while(p != NULL) {
+		printf("%d ", p->data);
+		p = p->next;
+	}
+//	printf("%d ", p->data);
+//	p = p->next;
+//	printf("%d ", p->data);
 	printf("\n");
 
 	return 0;
