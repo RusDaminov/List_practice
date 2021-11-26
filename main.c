@@ -17,6 +17,10 @@ int main() {
 	b.next = &c;
 	c.next = NULL;
 
-	printf("That's it\n");
+	printf("%d ", a.data);
+	printf("%d ", b.data);
+	printf("%d ", c.data);
+	printf("\n");
+
 	return 0;
 }
