@@ -26,28 +26,35 @@ void print(Node * list)
 void push(Node **pList, Data d)
 {
 	Node * p = malloc(sizeof(Node));
-	p->data = 10;
+	p->data = d;
 	p->next = *pList;
 	*pList = p;
 }
 
 int main() {
-
+	Data test[] = {21, 17, 3, 10};
 	Node * list = NULL;
-	Node a = {3};
-	Node b = {17};
-	Node c = {21};
-	Node t = {10};
+	size_t i = 0;
 
-	list = &a;
-	a.next = &b;
-	b.next = &c;
-	c.next = NULL;
-
-	print(list);
-	push(&list, 10);
-
-	print(list);
+	while (i < sizeof(test)/sizeof(test[0])){
+		push(&list, test[i]);
+		print(list);
+		i++;
+	}
+//	Node a = {3};
+//	Node b = {17};
+//	Node c = {21};
+//	Node t = {10};
+//
+//	list = &a;
+//	a.next = &b;
+//	b.next = &c;
+//	c.next = NULL;
+//
+//	print(list);
+//	push(&list, 10);
+//
+//	print(list);
 
 //	Node * p;
 //	p = list;
