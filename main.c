@@ -8,6 +8,16 @@ struct Node {
 	Node * next;
 };
 
+void print(Node * list)
+{
+	Node * p;
+	p = list;
+	while(p != NULL) {
+		printf("%d ", p->data);
+		p = p->next;
+	}
+}
+
 int main() {
 
 	Node * list = NULL;
@@ -21,12 +31,13 @@ int main() {
 	b.next = &c;
 	c.next = NULL;
 
-	Node * p;
-	p = list;
-	while(p != NULL) {
-		printf("%d ", p->data);
-		p = p->next;
-	}
+	print(list);
+//	Node * p;
+//	p = list;
+//	while(p != NULL) {
+//		printf("%d ", p->data);
+//		p = p->next;
+//	}
 //	printf("%d ", p->data);
 //	p = p->next;
 //	printf("%d ", p->data);
