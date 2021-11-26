@@ -6,9 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/abernita/CLionProjects/list/main.c
+/Users/abernita/CLionProjects/list/list.h
 stdio.h
 -
 stdlib.h
 -
+
+/Users/abernita/CLionProjects/list/main.c
+list.h
+/Users/abernita/CLionProjects/list/list.h
 
