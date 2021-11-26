@@ -15,6 +15,28 @@ void print(Node * list)
 	printf("\n");
 }
 
+void print_dbg(Node * list)
+{
+	Node * p = list->next;
+//	printf("%d prev=%p %p next=%p", p->data, p->prev, p, p->next);
+	while(p != list) {
+		printf("%d prev=%p %p next=%p", p->data, p->prev, p, p->next);
+		p = p->next;
+		printf("\n");
+	}
+	printf("\n");
+}
+
+void print_back(Node * list)
+{
+	Node * p = list->prev;
+	while(p != list) {
+		printf("%d ", p->data);
+		p = p->prev;
+	}
+	printf("\n");
+}
+
 int main(){
 
 	Node z,a = {3}, b = {17}, c = {21};
@@ -28,8 +50,8 @@ int main(){
 	c.next = &z;
 	a.prev = &z;
 
-	print(list);
-	printf("\n");
-
+	print(list);  // 3 17 21
+	print_back(list);  // 21 17 3
+	print_dbg(list);
 	return 0;
 }
