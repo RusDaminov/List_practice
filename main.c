@@ -12,6 +12,7 @@ struct Node {
 void print(Node * list);
 void push(Node **pList, Data d);
 int is_empty(Node * list);
+int pop(Node ** pList);
 
 void print(Node * list)
 {
@@ -32,6 +33,14 @@ void push(Node **pList, Data d)
 	*pList = p;
 }
 
+int pop(Node ** pList){
+	Node * p = *pList;
+	Data res = p->data;
+	*pList = p->next;
+	free(p);
+	return res;
+}
+
 int is_empty(Node * list){
 	return list == NULL;
 }
@@ -48,5 +57,13 @@ int main() {
 		i++;
 	}
 	printf("Empty: %s\n", is_empty(list) ? "Yes" : "No");
+
+	while(!is_empty(list)){
+		Data d = pop(&list);
+		printf("pop %d ", d);
+		print(list);
+	}
+	printf("Empty: %s\n", is_empty(list) ? "Yes" : "No");
+
 	return 0;
 }
