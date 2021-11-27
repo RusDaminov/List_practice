@@ -57,8 +57,7 @@ void ft_remove(Node * t){
 	q->prev = p;
 }
 
-int main(){
-
+void test(){
 	Node z,a, b, c, u, w;
 	Node * list = &z;
 	z.data = 0;
@@ -67,7 +66,6 @@ int main(){
 	c.data = 21;
 	u.data = 10;
 	w.data = 8;
-
 
 	init(list);  //zhopa s ruchkami
 	printf("Empty: %s\n", is_empty(list) ? "Yes" : "No");
@@ -100,7 +98,8 @@ int main(){
 	ft_remove(&w);
 	print(list);  // 3 17 21
 	print_back(list);  // 21 17 3
+}
 
-
-	return 0;
+int main(){
+	test();
 }
