@@ -126,6 +126,12 @@ Data pop_back(Node * list){
 	return list_delete(list->prev);
 }
 
+void clear(Node * list){
+	while(!is_empty(list))
+		pop_front(list);
+
+}
+
 void test_alloc(){
 	Node z;
 	Node * list = &z;
@@ -162,6 +168,9 @@ void test_alloc(){
 	res = pop_back(list);
 	print(list);	// 21 10
 	printf("pop_back: %d\n", res); // 8
+
+	clear(list);
+	printf("Empty: %s\n", is_empty(list) ? "Yes" : "No");
 }
 
 int main(){
