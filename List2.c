@@ -111,6 +111,21 @@ Node * push_back(Node * list, Data d){
 	return push_front(list->prev, d);
 }
 
+Data list_delete(Node * t){
+	ft_remove(t);
+	Data d = t->data;
+	free(t);
+	return d;
+}
+
+Data pop_front(Node * list){
+	return list_delete(list->next);
+}
+
+Data pop_back(Node * list){
+	return list_delete(list->prev);
+}
+
 void test_alloc(){
 	Node z;
 	Node * list = &z;
@@ -133,6 +148,20 @@ void test_alloc(){
 		printf("pushed_back: %d\n", t->data);
 	}// 3 17 21 10 8
 	printf("Empty: %s\n", is_empty(list) ? "Yes" : "No");
+
+	t = list->next->next;
+	Data res;
+
+	res = list_delete(t);
+	print(list); //3 21 10 8
+	printf("deleted: %d\n", res);
+
+	res = pop_front(list);
+	print(list);	// 21 10 8
+	printf("pop_front: %d\n", res); //3
+	res = pop_back(list);
+	print(list);	// 21 10
+	printf("pop_back: %d\n", res); // 8
 }
 
 int main(){

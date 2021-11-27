@@ -17,7 +17,8 @@ void print(Node * list); // O(n)
 void print_back(Node * list);
 void print_dbg(Node * list);
 int is_empty(Node * list);
-Data pop(Node ** pList);
+Data pop_front(Node * List);
+Data pop_back(Node * List);
 Node * create();
 void init(Node * list);
 void destroy(Node * list);
@@ -28,6 +29,6 @@ void ft_remove(Node * t);
 
 void push(Node **pList, Data d); // w malloc
 void push_before(Node **pList, Data d);
-Data delete(Node * t);
+Data list_delete(Node * t);
 
 #endif //LIST_LIST_H
