@@ -1,12 +1,6 @@
 #include "list.h"
 
-//typedef struct Node {
-//	struct Node * next;
-//	struct Node * prev;
-//	Data data;
-//} Node;
-void print(Node * list)
-{
+void print(Node * list){
 	Node * p = list->next;
 	while(p != list) {
 		printf("%d ", p->data);
@@ -15,8 +9,7 @@ void print(Node * list)
 	printf("\n");
 }
 
-void print_dbg(Node * list)
-{
+void print_dbg(Node * list){
 	Node * p = list->next;
 //	printf("%d prev=%p %p next=%p", p->data, p->prev, p, p->next);
 	while(p != list) {
@@ -27,8 +20,7 @@ void print_dbg(Node * list)
 	printf("\n");
 }
 
-void print_back(Node * list)
-{
+void print_back(Node * list){
 	Node * p = list->prev;
 	while(p != list) {
 		printf("%d ", p->data);
@@ -37,21 +29,62 @@ void print_back(Node * list)
 	printf("\n");
 }
 
+void insert(Node * p, Node * t){
+	Node * q = p->next;	// aka &b
+	t->prev = p;	//1
+	t->next = q;	//2
+	p->next = t;	//3
+	q->prev	= t;	//4
+}
+void insert_before(Node * q, Node * t){
+	insert(q->prev, t);
+}
+
+void init(Node * list){
+	list->next = list;
+	list->prev = list;
+}
+
+int is_empty(Node * list){
+	return list->prev == list->next;
+}
+
+
 int main(){
 
-	Node z,a = {3}, b = {17}, c = {21};
+	Node z,a, b, c, u, w;
 	Node * list = &z;
-	z.next = &a;
-	z.prev = &c;
-	a.next = &b;
-	c.prev = &b;
-	b.next = &c;
-	b.prev = &a;
-	c.next = &z;
-	a.prev = &z;
+	z.data = 0;
+	a.data = 3;
+	b.data = 17;
+	c.data = 21;
+	u.data = 10;
+	w.data = 8;
+
+
+	init(list);  //zhopa s ruchkami
+
+	insert(list, &c);
+	print(list);  //  21
+
+	insert(list, &b);
+	print(list);  // 17 21
+
+	insert(list, &a);
+	print(list);  // 3 17 21
 
 	print(list);  // 3 17 21
-	print_back(list);  // 21 17 3
 	print_dbg(list);
+	print_back(list);  // 21 17 3
+
+	insert(&a, &u);
+
+	print(list);  // 3 10 17 21
+	print_back(list);  // 21 17 10 3
+
+	insert_before(&u, &w);
+
+	print(list);  // 3 8 10 17 21
+	print_back(list);  // 21 17 10 8 3
 	return 0;
 }

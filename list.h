@@ -14,6 +14,8 @@ struct Node {
 };
 
 void print(Node * list); // O(n)
+void print_back(Node * list);
+void print_dbg(Node * list);
 int is_empty(Node * list);
 Data pop(Node ** pList);
 Node * create();
