@@ -35,6 +35,7 @@ void insert(Node * p, Node * t){
 	t->next = q;	//2
 	p->next = t;	//3
 	q->prev	= t;	//4
+
 }
 void insert_before(Node * q, Node * t){
 	insert(q->prev, t);
@@ -46,9 +47,15 @@ void init(Node * list){
 }
 
 int is_empty(Node * list){
-	return list->prev == list->next;
+	return list->prev == list->next && list->next == list;
 }
 
+void ft_remove(Node * t){
+	Node * p = t->prev;	// 1
+	Node * q = t->next;	// 2
+	p->next = q;
+	q->prev = p;
+}
 
 int main(){
 
@@ -63,6 +70,7 @@ int main(){
 
 
 	init(list);  //zhopa s ruchkami
+	printf("Empty: %s\n", is_empty(list) ? "Yes" : "No");
 
 	insert(list, &c);
 	print(list);  //  21
@@ -78,13 +86,21 @@ int main(){
 	print_back(list);  // 21 17 3
 
 	insert(&a, &u);
-
 	print(list);  // 3 10 17 21
 	print_back(list);  // 21 17 10 3
 
 	insert_before(&u, &w);
-
 	print(list);  // 3 8 10 17 21
 	print_back(list);  // 21 17 10 8 3
+
+	ft_remove(&u);
+	print(list);  // 3 8 17 21
+	print_back(list);  // 21 17 8 3
+
+	ft_remove(&w);
+	print(list);  // 3 17 21
+	print_back(list);  // 21 17 3
+
+
 	return 0;
 }

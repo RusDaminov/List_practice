@@ -24,7 +24,7 @@ void destroy(Node * list);
 
 void insert(Node * p, Node * t); // w/o malloc
 void insert_before(Node * p, Node * t);
-Node * ft_remove(Node * t);
+void ft_remove(Node * t);
 
 void push(Node **pList, Data d); // w malloc
 void push_before(Node **pList, Data d);
