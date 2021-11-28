@@ -7,6 +7,13 @@
 typedef int Data;
 typedef struct Node Node;
 
+struct CNode{
+	int Data;
+	struct CNode* Next;
+	struct CNode* Prev;
+//	CNode() : Data(0), Next(0), Prev(0){}
+};
+
 struct Node {
 	Data data;
 	struct Node * next;
@@ -30,5 +37,13 @@ void ft_remove(Node * t);
 void push(Node **pList, Data d); // w malloc
 void push_before(Node **pList, Data d);
 Data list_delete(Node * t);
+
+
+
+//TechnoPark
+CNode* Search(CNode* head, int a);
+CNode* InsertAfter(CNode* node, int a);
+void DelNode(CNode* node);
+CNode* Union(CNode* head1, CNode* head2);
 
 #endif //LIST_LIST_H
