@@ -41,9 +41,9 @@ Data list_delete(Node * t);
 
 
 //TechnoPark
-CNode* Search(CNode* head, int a);
-CNode* InsertAfter(CNode* node, int a);
-void DelNode(CNode* node);
-CNode* Union(CNode* head1, CNode* head2);
+//CNode* Search(CNode* head, int a);
+//CNode* InsertAfter(CNode* node, int a);
+//void DelNode(CNode* node);
+//CNode* Union(CNode* head1, CNode* head2);
 
 #endif //LIST_LIST_H
